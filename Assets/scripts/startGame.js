@@ -18,7 +18,6 @@ function Update () {
 	
 	var fwd: Vector3 = startGameBtn.TransformDirection(Vector3.forward);
 	if (Physics.Raycast(player.position, fwd, distanceAllowed)){
-		//print("There is something in front of the object!");
 		//Debug.Log( "Player is close to the button");
 		if (Input.GetMouseButtonDown(0)) {
 			Debug.Log( "Player clicked mouse left button - start the game");
@@ -26,9 +25,9 @@ function Update () {
 			startGameBtn.position.z += 0.3;
 			generateRanPlanScript.GenerateRandomPlan();
 		}
-		
+		// if the left mouse buttin is not being pressed => revert the startGame button to its original position
 		if (Input.GetMouseButtonUp(0)) {
-		startGameBtn.position.z = originalButtonZvalue;
+			startGameBtn.position.z = originalButtonZvalue;
 		}
 		
 	}

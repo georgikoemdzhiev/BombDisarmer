@@ -7,7 +7,7 @@ private var playerCloseToButton = false;
 private var originalButtonZvalue;
 private var distanceAllowed = 1.7;
 private var isGameStarted: boolean = false;
-private var timer: float = 10.0;
+private var timer: float = 60.0;
 
 function Start () {
 	originalButtonZvalue = startGameBtn.position.z;

@@ -21,9 +21,12 @@ function Update () {
 		//Debug.Log( "Player is close to the button");
 		if (Input.GetMouseButtonDown(0)) {
 			Debug.Log( "Player clicked mouse left button - start the game");
-			isGameStarted = true;
 			startGameBtn.position.z += 0.3;
+			
+			if(!isGameStarted)
 			generateRanPlanScript.GenerateRandomPlan();
+		
+			isGameStarted = true;
 		}
 		// if the left mouse buttin is not being pressed => revert the startGame button to its original position
 		if (Input.GetMouseButtonUp(0)) {

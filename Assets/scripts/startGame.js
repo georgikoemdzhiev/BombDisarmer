@@ -1,14 +1,16 @@
 ﻿#pragma strict
 var player: Transform;
 var startGameBtn: Transform;
- 
+var pressingButtonSound: AudioSource;
+
 private var generateRanPlanScript: GenerateRandomPlan;
 private var playerCloseToButton = false;
 private var originalButtonZvalue;
 private var distanceAllowed = 1.7;
 private var isGameStarted: boolean = false;
-private var timer: float = 50.0;
+private var timer: float = 30.0;
 private var audioCue: AudioSource;
+
 function Start () {
 	originalButtonZvalue = startGameBtn.position.z;
 	generateRanPlanScript = GetComponent("GenerateRandomPlan");
@@ -23,7 +25,8 @@ function Update () {
 		if (Input.GetMouseButtonDown(0)) {
 			Debug.Log( "Player clicked mouse left button - start the game");
 			startGameBtn.position.z += 0.3;
-			
+			// play pressing button sound...
+			pressingButtonSound.Play();
 			if(!isGameStarted)
 			generateRanPlanScript.GenerateRandomPlan();
 			//play the sound cue sound

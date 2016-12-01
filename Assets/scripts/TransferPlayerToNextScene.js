@@ -48,6 +48,6 @@ function OnGUI() {
 	var centeredStyle = GUI.skin.GetStyle("Label");
     centeredStyle.alignment = TextAnchor.UpperCenter;
 	if(showBDP){
-		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 100, 50), bombDisarmingPlan + " " + timer.ToString("0"), centeredStyle);
+		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 200, 50), bombDisarmingPlan + " " + timer.ToString("0"), centeredStyle);
 	}
 }

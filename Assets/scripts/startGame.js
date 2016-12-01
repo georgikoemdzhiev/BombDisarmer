@@ -47,7 +47,6 @@ function Update () {
 				//Game Over
 				timer = 0;
 				isGameStarted = false;
-				
 				SceneManager.LoadScene ("BombSearchScene");
 			}
 		}
@@ -56,6 +55,20 @@ function Update () {
 
 function OnGUI() {
 	GUI.Box(new Rect(10,10,50,20), "" + timer.ToString("0"));
+	
+	GUI.Box(new Rect(Screen.width - 210,10,200,20), "Best time: " + (Mathf.Round(PlayerPrefs.GetFloat("BESTTIME"))));
+}
+
+function GetTimeValue() {
+	return timer;
+}
+
+function StopTime() {
+	isGameStarted = false;
+}
+
+function StartTime() {
+	isGameStarted = true;
 }
 
  

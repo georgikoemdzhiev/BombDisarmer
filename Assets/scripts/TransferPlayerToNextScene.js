@@ -21,9 +21,9 @@ function Start () {
 
 function Update () {
 	var distance = Vector3.Distance(transform.position, player.position);
-	//Debug.Log( "Player is close: " + distance.ToString());
+	Debug.Log( "Player is close: " + distance.ToString());
 	//Check if the player is close to the bomb and clicks the left mouse button
-	if(distance <= 2){
+	if(distance <= 3){
 		// Stop the timer since the player has found the bomb...
 		gameManager.GetComponent.<startGame>().StopTime();
 		//Save the best time to the player preferences
@@ -37,7 +37,7 @@ function Update () {
 			showBDP = true;
 		}
 		
-	}else if (distance > 2 && distance <= 4){
+	}else if (distance >= 10 && distance <= 15){
 		gameManager.GetComponent.<startGame>().StartTime();
 		showBDP = false;
 		goToNextSceneText.enabled = false;

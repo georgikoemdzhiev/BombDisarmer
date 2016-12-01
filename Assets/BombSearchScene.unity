@@ -1369,9 +1369,6 @@ MonoBehaviour:
   - {fileID: 283957522}
   - {fileID: 1311787790}
   - {fileID: 1040690762}
-  - {fileID: 720566112}
-  - {fileID: 709735623}
-  - {fileID: 1797588106}
   bombDisarmingPlan: {fileID: 256242055}
 --- !u!4 &667816294
 Transform:

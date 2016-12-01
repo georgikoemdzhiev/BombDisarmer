@@ -8,10 +8,11 @@ private var originalButtonZvalue;
 private var distanceAllowed = 1.7;
 private var isGameStarted: boolean = false;
 private var timer: float = 50.0;
-
+private var audioCue: AudioSource;
 function Start () {
 	originalButtonZvalue = startGameBtn.position.z;
 	generateRanPlanScript = GetComponent("GenerateRandomPlan");
+	audioCue = GetComponent.<AudioSource>();
 }
 
 function Update () {
@@ -25,7 +26,9 @@ function Update () {
 			
 			if(!isGameStarted)
 			generateRanPlanScript.GenerateRandomPlan();
-		
+			//play the sound cue sound
+			audioCue.PlayDelayed(1);
+			
 			isGameStarted = true;
 		}
 		// if the left mouse buttin is not being pressed => revert the startGame button to its original position

@@ -10,7 +10,6 @@ function Start () {
 function Update () {
 	var sqrDistance = (bombDisarmingPlan.transform.position - transform.position).sqrMagnitude;
 	// increase the pitch if player is getting closser...
-	
 	if(sqrDistance < 15000) {
 		gameManager.GetComponent.<AudioSource>().pitch = 1.0;
 	}

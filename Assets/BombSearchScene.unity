@@ -1359,7 +1359,7 @@ MonoBehaviour:
   targetListOfObjects:
   - {fileID: 1367075331}
   - {fileID: 664942284}
-  - {fileID: 461241253}
+  - {fileID: 1381798399}
   - {fileID: 1625629108}
   - {fileID: 2109388780}
   - {fileID: 1467717321}
@@ -3589,7 +3589,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381798399}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.6049175, y: 3.5999496, z: 2.1107059}

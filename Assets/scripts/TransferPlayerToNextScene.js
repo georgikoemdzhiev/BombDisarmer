@@ -50,10 +50,15 @@ function Update () {
 
 function OnGUI() {
 	
-	var centeredStyle = GUI.skin.GetStyle("Label");
-    centeredStyle.alignment = TextAnchor.UpperCenter;
+	var textStyle = GUI.skin.GetStyle("Label");
+    textStyle.alignment = TextAnchor.UpperCenter;
+	textStyle.fontSize = 24;
+	textStyle.normal.textColor = Color.red;
+	
 	if(showBDP){
-		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 200, 50), GetColourNameFromInArray(bombDisarmingColourSequenceArr) + " " + timer.ToString("0"), centeredStyle);
+		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 350, 50),
+		GetColourNameFromInArray(bombDisarmingColourSequenceArr) + " " + timer.ToString("0"),
+		textStyle);
 	}
 }
 

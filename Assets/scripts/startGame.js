@@ -3,7 +3,7 @@ var player: Transform;
 var startGameBtn: Transform;
 var pressingButtonSound: AudioSource;
 
-private var generateRanPlanScript: GenerateRandomPlan;
+private var generateRanPlanScript: GenerateRandomPlanLocation;
 private var playerCloseToButton = false;
 private var originalButtonZvalue;
 private var distanceAllowed = 1.7;
@@ -13,7 +13,7 @@ private var audioCue: AudioSource;
 
 function Start () {
 	originalButtonZvalue = startGameBtn.position.z;
-	generateRanPlanScript = GetComponent("GenerateRandomPlan");
+	generateRanPlanScript = GetComponent("GenerateRandomPlanLocation");
 	audioCue = GetComponent.<AudioSource>();
 }
 

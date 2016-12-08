@@ -9,12 +9,9 @@ var gameManager: GameObject;
 private var timer: float = 5.0;
 private var distanceAllowed = 1.5;
 private var showBDP = false;
-private var colourCodes = ["YellowYellowRedGreenBlue",
-							"ReedGreenBlueYellowRed",
-							"BlueYellowYellowBlueYellow",
-							"YellowGreenGreenYellowBlue",
-							"GreenBlueYellowGreenBlue"];
-private var bombDisarmingPlan = "";
+private final var COLOUR_SEQUENCE_LENGHT = 5;
+private var bombDisarmingColourSequenceArr = new Array ();
+
 function Start () {
 	goToNextSceneText.enabled = false;
 }
@@ -31,9 +28,7 @@ function Update () {
 		// Show text 'Press the mouse left button in order to go show the bomb disarming plan
 		goToNextSceneText.enabled = true;
 		if(Input.GetMouseButtonUp(0)){
-			bombDisarmingPlan = colourCodes[Random.Range(0, colourCodes.length)];
-			// Save the code in the player preferences...
-			PlayerPrefs.SetString("BDPCODE", bombDisarmingPlan);
+			GenerateBombDisarmingPlanColourSequence();
 			showBDP = true;
 		}
 		
@@ -58,7 +53,7 @@ function OnGUI() {
 	var centeredStyle = GUI.skin.GetStyle("Label");
     centeredStyle.alignment = TextAnchor.UpperCenter;
 	if(showBDP){
-		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 200, 50), bombDisarmingPlan + " " + timer.ToString("0"), centeredStyle);
+		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 200, 50), GetColourNameFromInArray(bombDisarmingColourSequenceArr) + " " + timer.ToString("0"), centeredStyle);
 	}
 }
 
@@ -69,5 +64,39 @@ function SaveBestTime(currentTimeValue) {
 	if (previousValue < current) {
 		PlayerPrefs.SetFloat("BESTTIME", currentTimeValue);
 	}
+}
+
+function GenerateBombDisarmingPlanColourSequence() {
 	
+	for(var i = 0; i < COLOUR_SEQUENCE_LENGHT; i++) {
+		// Generate random colour/integer in range 0 to COLOUR_SEQUENCE_LENGHT variable
+		var colourIndex = Random.Range(0, COLOUR_SEQUENCE_LENGHT);
+		bombDisarmingColourSequenceArr.Push(colourIndex);
+		//Save to PlayerPrefs
+		PlayerPrefs.SetInt("BDPCODE" + i, colourIndex);
+	}
+}
+
+function GetColourNameFromInArray(arr){
+	// Index for RED = 0
+	// Index for GREEN = 1
+	// Index for BLUE = 2
+	// Index for Yellow = 3
+	// Index for Orange = 4
+	var stringColourSequence = "";
+	for (var value : int in arr) {
+		if(value == 0) {
+			stringColourSequence += "Red";
+		}else if(value == 1){
+			stringColourSequence += "Green";
+		}else if(value == 2){
+			stringColourSequence += "Blue";
+		}else if(value == 3){
+			stringColourSequence += "Yellow";
+		}else{
+			stringColourSequence += "Orange";
+		}
+    }
+	
+	return (stringColourSequence);
 }

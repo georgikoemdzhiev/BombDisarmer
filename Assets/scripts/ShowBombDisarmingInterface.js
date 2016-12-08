@@ -5,6 +5,8 @@ var gameDisarmingInterface: Image;
 private var isBombDisarmingInterfaceVisible = false;
 private final var COLOUR_SEQUENCE_LENGHT = 5;
 private var colourSequenceArr = new Array(5);
+private var currentCode = 0;
+
 function Start () {
 	for(var i = 0; i < COLOUR_SEQUENCE_LENGHT; i++) {
 		colourSequenceArr[i] = PlayerPrefs.GetInt("BDPCODE" + i, 0);
@@ -20,6 +22,35 @@ function Update () {
 		gameDisarmingInterface.gameObject.active = true;
 		isBombDisarmingInterfaceVisible = true;
 	}
+	
+	if(isBombDisarmingInterfaceVisible){
+		
+		//Check if the player wins
+		if(currentCode == 5){
+			print("YOU WIN!");
+		}else{
+			// Check for the exact colour sequence
+			if (Input.GetKeyDown (KeyCode.Keypad0) || Input.GetKeyDown (KeyCode.Alpha0)){
+				print ("Number 0 key is pressed");
+				CheckPlayerInputForKey(0);
+			}else if(Input.GetKeyDown (KeyCode.Keypad1) || Input.GetKeyDown (KeyCode.Alpha1)){
+				print ("Number 1 key is pressed");
+				CheckPlayerInputForKey(1);
+			}else if(Input.GetKeyDown (KeyCode.Keypad2) || Input.GetKeyDown (KeyCode.Alpha2)){
+				print ("Number 2 key is pressed");
+				CheckPlayerInputForKey(2);
+			}else if(Input.GetKeyDown (KeyCode.Keypad3) || Input.GetKeyDown (KeyCode.Alpha3)){
+				print ("Number 3 key is pressed");
+				CheckPlayerInputForKey(3);
+			}else if(Input.GetKeyDown (KeyCode.Keypad4) || Input.GetKeyDown (KeyCode.Alpha4)){
+				print ("Number 4 key is pressed");
+				CheckPlayerInputForKey(4);
+			}
+		}
+		
+	}
+	
+	//print("Current code index: " + currentCode);
         
 }
 
@@ -65,4 +96,14 @@ function GetColourNameFromInArray(arr){
     }
 	
 	return (stringColourSequence);
+}
+
+function CheckPlayerInputForKey(key){
+
+	if(colourSequenceArr[currentCode] == key){
+		currentCode++;
+	}else{
+		print ("Wrong colour! GameOver!");
+	}
+	
 }

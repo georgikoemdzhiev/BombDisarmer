@@ -3664,7 +3664,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439468, guid: e4d5b3da80c9aca48ab5e9941eb8b8f9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 106.48
+      value: 106.4
       objectReference: {fileID: 0}
     - target: {fileID: 439468, guid: e4d5b3da80c9aca48ab5e9941eb8b8f9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4120,8 +4120,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.9055195, y: 4.909148, z: 4.2888513}
-  m_Center: {x: -0.47990203, y: 0.654876, z: -0.09475372}
+  m_Size: {x: 6.9055195, y: 4.909148, z: 4.0090113}
+  m_Center: {x: -0.47989735, y: 0.6548905, z: 0.04516864}
 --- !u!114 &1467717325
 MonoBehaviour:
   m_ObjectHideFlags: 0

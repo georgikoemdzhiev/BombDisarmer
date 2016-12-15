@@ -15,6 +15,7 @@ function Start () {
 	originalButtonZvalue = startGameBtn.position.z;
 	generateRanPlanScript = GetComponent("GenerateRandomPlanLocation");
 	audioCue = GetComponent.<AudioSource>();
+	//PlayerPrefs.DeleteAll();
 }
 
 function Update () {

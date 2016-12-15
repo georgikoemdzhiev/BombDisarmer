@@ -1472,6 +1472,7 @@ MonoBehaviour:
   gameOver: {fileID: 386810627}
   youWinSprite: {fileID: 21300000, guid: 57ed76a37b271544aac6971dc4a2ed33, type: 3}
   explosionAudioClip: {fileID: 8300000, guid: f7d95f68f0d4b2a44a9b71907eba5490, type: 3}
+  winAudioClip: {fileID: 8300000, guid: dc751f22ca9b3b7468fa047e4733a8e7, type: 3}
 --- !u!1 &1419336363
 GameObject:
   m_ObjectHideFlags: 0

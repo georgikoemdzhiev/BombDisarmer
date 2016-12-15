@@ -5,12 +5,15 @@ var GameOverText: Text;
 var gameDisarmingInterface: Image;
 var gameOver: Image;
 var youWinSprite: Sprite;
+var explosionAudioClip: AudioClip;
 
 private var isGameOver = false;
 private var isBombDisarmingInterfaceVisible = false;
 private final var COLOUR_SEQUENCE_LENGHT = 5;
 private var colourSequenceArr = new Array(5);
 private var currentCode = 0;
+private var explosionAudioSource: AudioSource;
+
 
 function Start () {
 	for(var i = 0; i < COLOUR_SEQUENCE_LENGHT; i++) {
@@ -18,6 +21,8 @@ function Start () {
 	}
 	
 	DebugColourSequence();
+	
+	explosionAudioSource = GetComponent.<AudioSource>();
 }
 
 
@@ -121,6 +126,8 @@ function CheckPlayerInputForKey(key){
 	}else{
 		gameOver.gameObject.active = true;
 		isGameOver = true;
+		explosionAudioSource.clip = explosionAudioClip;
+		explosionAudioSource.Play();
 		print ("Wrong colour! GameOver!");
 	}
 	

@@ -2,6 +2,9 @@
 
 var PressButtonText: Text;
 var gameDisarmingInterface: Image;
+var gameOver: Image;
+
+private var isGameOver = false;
 private var isBombDisarmingInterfaceVisible = false;
 private final var COLOUR_SEQUENCE_LENGHT = 5;
 private var colourSequenceArr = new Array(5);
@@ -22,6 +25,12 @@ function Update () {
 		PressButtonText.enabled = false;
 		gameDisarmingInterface.gameObject.active = true;
 		isBombDisarmingInterfaceVisible = true;
+	}
+	
+	// Check if the user presses the left mouse button
+	if(Input.GetMouseButton(0) && isGameOver){
+        Debug.Log("Transfer player to scene one. Play again.");
+		SceneManager.LoadScene ("BombSearchScene");
 	}
 	
 	if(isBombDisarmingInterfaceVisible){
@@ -104,6 +113,8 @@ function CheckPlayerInputForKey(key){
 	if(colourSequenceArr[currentCode] == key){
 		currentCode++;
 	}else{
+		gameOver.gameObject.active = true;
+		isGameOver = true;
 		print ("Wrong colour! GameOver!");
 	}
 	

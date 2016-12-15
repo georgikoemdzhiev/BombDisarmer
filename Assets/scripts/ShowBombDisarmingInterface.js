@@ -12,8 +12,9 @@ function Start () {
 		colourSequenceArr[i] = PlayerPrefs.GetInt("BDPCODE" + i, 0);
 	}
 	
-	DebutColourSequence();
+	DebugColourSequence();
 }
+
 
 function Update () {
 	if (Input.GetKeyDown ("o")){
@@ -69,7 +70,7 @@ function isBombInterfaceVisible(){
 	return isBombDisarmingInterfaceVisible;
 }
 
-function DebutColourSequence(){
+function DebugColourSequence(){
 	
 	Debug.Log("Wire combo: " + GetColourNameFromInArray(colourSequenceArr));
 }

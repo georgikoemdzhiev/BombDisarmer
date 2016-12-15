@@ -7,6 +7,7 @@ var goToNextSceneText: Text;
 var gameManager: GameObject;
 
 private var timer: float = 5.0;
+private var isBombDisarmingSequenceGenerated = false;
 private var distanceAllowed = 1.5;
 private var showBDP = false;
 private final var COLOUR_SEQUENCE_LENGHT = 5;
@@ -27,9 +28,10 @@ function Update () {
 		SaveBestTime(gameManager.GetComponent.<StartGame>().GetTimeValue());
 		// Show text 'Press the mouse left button in order to go show the bomb disarming plan
 		goToNextSceneText.enabled = true;
-		if(Input.GetMouseButtonUp(0)){
+		if(Input.GetMouseButtonUp(0) && !isBombDisarmingSequenceGenerated){
 			GenerateBombDisarmingPlanColourSequence();
 			showBDP = true;
+			isBombDisarmingSequenceGenerated = true;
 		}
 		
 	}else if (distance >= 10 && distance <= 15){

@@ -2731,8 +2731,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9712236, y: 5.3613515, z: 2.9026763}
-  m_Center: {x: -0.05777633, y: 0.05644643, z: -0.8775376}
+  m_Size: {x: 5.2312713, y: 6.040242, z: 2.9026763}
+  m_Center: {x: -0.029934507, y: 0.008188352, z: -0.8775376}
 --- !u!1 &1063918653 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 184456, guid: c8ca0511c443d4545ae17fee70addf10, type: 2}

@@ -8,7 +8,7 @@ private var playerCloseToButton = false;
 private var originalButtonZvalue;
 private var distanceAllowed = 1.7;
 private var isGameStarted: boolean = false;
-private var timer: float = 30.0;
+private var timer: float = 40.0;
 private var audioCue: AudioSource;
 
 function Start () {

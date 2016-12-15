@@ -6,8 +6,10 @@ var gameDisarmingInterface: Image;
 var gameOver: Image;
 var youWinSprite: Sprite;
 var explosionAudioClip: AudioClip;
+var winAudioClip: AudioClip;
 
 private var isGameOver = false;
+private var isWinSoundPlayed = false;
 private var isBombDisarmingInterfaceVisible = false;
 private final var COLOUR_SEQUENCE_LENGHT = 5;
 private var colourSequenceArr = new Array(5);
@@ -27,6 +29,9 @@ function Start () {
 
 
 function Update () {
+	//Cursor.visible = true;
+	//Screen.lockCursor = false;
+	
 	if (Input.GetKeyDown ("o")){
 		print ("space key was pressed");
 		PressButtonText.enabled = false;
@@ -48,7 +53,12 @@ function Update () {
 			gameOver.sprite = youWinSprite;
 			GameOverText.enabled = false;
 			gameOver.gameObject.active = true;
+			if(!isGameOver){
+				explosionAudioSource.clip = winAudioClip;
+				explosionAudioSource.Play();
+			}
 			isGameOver = true;
+			
 		}else{
 			// Check for the exact colour sequence
 			if (Input.GetKeyDown (KeyCode.Keypad0) || Input.GetKeyDown (KeyCode.Alpha0)){

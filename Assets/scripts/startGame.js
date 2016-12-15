@@ -28,12 +28,13 @@ function Update () {
 			startGameBtn.position.z += 0.3;
 			// play pressing button sound...
 			pressingButtonSound.Play();
-			if(!isGameStarted)
-			generateRanPlanScript.GenerateRandomPlan();
-			//play the sound cue sound
-			audioCue.PlayDelayed(1);
+			if(!isGameStarted){
+				generateRanPlanScript.GenerateRandomPlan();
+				//play the sound cue sound
+				audioCue.PlayDelayed(1);
+				isGameStarted = true;
+			}
 			
-			isGameStarted = true;
 		}
 		// if the left mouse buttin is not being pressed => revert the startGame button to its original position
 		if (Input.GetMouseButtonUp(0)) {

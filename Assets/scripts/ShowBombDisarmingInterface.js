@@ -1,8 +1,10 @@
 ﻿#pragma strict
 
 var PressButtonText: Text;
+var GameOverText: Text;
 var gameDisarmingInterface: Image;
 var gameOver: Image;
+var youWinSprite: Sprite;
 
 private var isGameOver = false;
 private var isBombDisarmingInterfaceVisible = false;
@@ -38,6 +40,10 @@ function Update () {
 		//Check if the player wins
 		if(currentCode == 5){
 			print("YOU WIN!");
+			gameOver.sprite = youWinSprite;
+			GameOverText.enabled = false;
+			gameOver.gameObject.active = true;
+			isGameOver = true;
 		}else{
 			// Check for the exact colour sequence
 			if (Input.GetKeyDown (KeyCode.Keypad0) || Input.GetKeyDown (KeyCode.Alpha0)){

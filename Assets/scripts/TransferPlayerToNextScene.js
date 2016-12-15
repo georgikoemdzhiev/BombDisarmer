@@ -22,9 +22,9 @@ function Update () {
 	//Check if the player is close to the bomb and clicks the left mouse button
 	if(distance <= 3){
 		// Stop the timer since the player has found the bomb...
-		gameManager.GetComponent.<startGame>().StopTime();
+		gameManager.GetComponent.<StartGame>().StopTime();
 		//Save the best time to the player preferences
-		SaveBestTime(gameManager.GetComponent.<startGame>().GetTimeValue());
+		SaveBestTime(gameManager.GetComponent.<StartGame>().GetTimeValue());
 		// Show text 'Press the mouse left button in order to go show the bomb disarming plan
 		goToNextSceneText.enabled = true;
 		if(Input.GetMouseButtonUp(0)){
@@ -33,7 +33,7 @@ function Update () {
 		}
 		
 	}else if (distance >= 10 && distance <= 15){
-		gameManager.GetComponent.<startGame>().StartTime();
+		gameManager.GetComponent.<StartGame>().StartTime();
 		showBDP = false;
 		goToNextSceneText.enabled = false;
 	}

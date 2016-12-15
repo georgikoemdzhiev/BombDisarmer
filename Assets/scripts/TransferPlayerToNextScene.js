@@ -58,7 +58,7 @@ function OnGUI() {
 	textStyle.normal.textColor = Color.red;
 	
 	if(showBDP){
-		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 350, 50),
+		GUI.Label (Rect (Screen.width/2-50, Screen.height/2-25, 400, 50),
 		GetColourNameFromInArray(bombDisarmingColourSequenceArr) + " " + timer.ToString("0"),
 		textStyle);
 	}

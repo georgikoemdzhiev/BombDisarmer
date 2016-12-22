@@ -129,6 +129,7 @@ function GetColourNameFromInArray(arr){
 	return (stringColourSequence);
 }
 
+// Function that checks the entered key (wire colour)
 function CheckPlayerInputForKey(key){
 
 	if(colourSequenceArr[currentCode] == key){
